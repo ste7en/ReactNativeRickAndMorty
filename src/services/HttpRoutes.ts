@@ -1,7 +1,10 @@
 enum HttpRoutes {
   Character = '/character',
+  CharacterById = '/character/:id',
   Location = '/location',
-  Episode = '/episode'
+  LocationById = '/location/:id',
+  Episode = '/episode',
+  EpisodeById = '/episode/:id'
 }
 
 export default HttpRoutes
