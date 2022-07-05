@@ -7895,6 +7895,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-config@npm:^1.4.6":
+  version: 1.4.6
+  resolution: "react-native-config@npm:1.4.6"
+  peerDependencies:
+    react-native-windows: ">=0.61"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 138da474c67fa1ea45819f6935e8d2c2f4cfea0abc1cc8ca7b3f337ca8c46af630254458cef0d4fb8e21f002d0d58959f3257dca8186ddb5af061a21f740591a
+  languageName: node
+  linkType: hard
+
 "react-native-gradle-plugin@npm:^0.0.7":
   version: 0.0.7
   resolution: "react-native-gradle-plugin@npm:0.0.7"
@@ -7995,6 +8007,7 @@ __metadata:
     metro-react-native-babel-preset: ^0.70.3
     react: 18.0.0
     react-native: 0.69.1
+    react-native-config: ^1.4.6
     typescript: ^4.4.4
   languageName: unknown
   linkType: soft
