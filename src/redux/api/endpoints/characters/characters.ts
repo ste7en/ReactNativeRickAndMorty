@@ -1,3 +1,4 @@
+import FastImage from 'react-native-fast-image'
 import {Character} from '../../../../models/Character'
 import {
   PaginatedQueryResult,
@@ -24,7 +25,12 @@ export const getCharacters = (
         type: 'CHARACTERS_PAGE' as 'CHARACTERS_PAGE',
         id: character.id
       }))
-    ]
+    ],
+    async onQueryStarted(args, {queryFulfilled}) {
+      const {data} = await queryFulfilled
+      const imgSources = data.map(character => ({uri: character.image}))
+      FastImage.preload(imgSources)
+    }
   })
 
 export const getCharacter = (
