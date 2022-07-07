@@ -7977,7 +7977,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.6.0, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -8142,18 +8142,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-touchable-scale@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "react-native-touchable-scale@npm:2.1.2"
-  dependencies:
-    prop-types: ^15.6.0
-  peerDependencies:
-    react: ">=0.13.2 || ^0.14 || ^15.0.0"
-    react-native: ">=0.19.0"
-  checksum: e8962c3249470216fdfcbf10d84ffe1b8a3ac4a840d0eef2de5f61fe5366c1c738a76e4ccaa39727c404073b4934aba712ef46e2e014820fb1f1fcaa976628e4
-  languageName: node
-  linkType: hard
-
 "react-native@npm:0.69.1":
   version: 0.69.1
   resolution: "react-native@npm:0.69.1"
@@ -8287,7 +8275,6 @@ __metadata:
     react-native-fast-image: ^8.5.11
     react-native-safe-area-context: ^4.3.1
     react-native-screens: ^3.14.1
-    react-native-touchable-scale: ^2.1.2
     react-redux: ^8.0.2
     typescript: ^4.4.4
   languageName: unknown
