@@ -11,6 +11,7 @@ A paginated FlatList of characters with their avatar, name and some details.
 ## Details screen
 
 A screen displaying the details of a character such as their status, gender, origin and last location, as well as a list of episodes in which the character appeared.
+
 ![character details](imgs/2.png)
 
 ## How to run
