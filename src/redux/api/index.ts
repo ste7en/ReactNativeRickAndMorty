@@ -4,5 +4,6 @@ import {httpBaseQuery} from './baseQuery'
 export const api = createApi({
   reducerPath: 'rickAndMortyApi',
   baseQuery: httpBaseQuery(),
-  endpoints: () => ({})
+  endpoints: () => ({}),
+  keepUnusedDataFor: 120
 })

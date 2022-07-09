@@ -1,15 +1,9 @@
-import FastImage from 'react-native-fast-image'
 import {Character} from '../../../../models/Character'
-import {
-  PaginatedQueryResult,
-  PaginationQuery
-} from '../../../../models/HttpRequests'
+import {PaginationQuery} from '../../../../models/HttpRequests'
 import HttpRoutes from '../../../../services/HttpRoutes'
 import {HttpBaseQueryEndpointBuilder} from '../../baseQuery'
-
-const getCharactersTransformResponse = (
-  result: PaginatedQueryResult<Character>
-): Character[] => result.results
+import {doPrefetch} from '../../utils'
+import {getCharactersTransformResponse} from './utils'
 
 export const tagTypes = ['CHARACTERS_PAGE', 'CHARACTERS']
 
@@ -28,18 +22,6 @@ export const getCharacters = (
     ],
     async onQueryStarted(args, {queryFulfilled}) {
       const {data} = await queryFulfilled
-      const imgSources = data.map(character => ({uri: character.image}))
-      FastImage.preload(imgSources)
+      doPrefetch(data)
     }
-  })
-
-export const getCharacter = (
-  build: HttpBaseQueryEndpointBuilder<'CHARACTERS'>
-) =>
-  build.query<Character, string>({
-    query: id => ({
-      url: HttpRoutes.CharacterById.replace(':id', id),
-      method: 'GET'
-    }),
-    providesTags: (result, error, id) => [{type: 'CHARACTERS', id}]
   })
