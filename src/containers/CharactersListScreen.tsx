@@ -1,11 +1,15 @@
 import React from 'react'
 
+import {FlatList, ListRenderItem, StyleSheet} from 'react-native'
+import {
+  NativeStackNavigationProp,
+  NativeStackScreenProps
+} from '@react-navigation/native-stack'
+
 import {useGetCharactersQuery} from '../redux/api/endpoints/characters'
 import {PaginationQuery} from '../models/HttpRequests'
-import {FlatList, StyleSheet, View} from 'react-native'
 import {Character} from '../models/Character'
 import CharacterItem from '../components/CharacterItem'
-import {NativeStackScreenProps} from '@react-navigation/native-stack'
 import {ProfilesStackParams} from '../navigators/ProfilesNavigator'
 
 const CharactersListScreen = ({
@@ -25,20 +29,12 @@ const CharactersListScreen = ({
   }, [currentData])
 
   return (
-    <View>
-      <FlatList
-        data={characters}
-        renderItem={({item, index}) => (
-          <CharacterItem
-            key={index}
-            character={item}
-            onPress={() => navigation.navigate('Details', item)}
-          />
-        )}
-        onEndReached={loadMore}
-        contentContainerStyle={styles.contentContainer}
-      />
-    </View>
+    <FlatList
+      data={characters}
+      renderItem={renderCharacterItem(navigation)}
+      onEndReached={loadMore}
+      contentContainerStyle={styles.contentContainer}
+    />
   )
 }
 
@@ -50,3 +46,15 @@ const styles = StyleSheet.create({
 })
 
 export default CharactersListScreen
+
+function renderCharacterItem(
+  navigation: NativeStackNavigationProp<ProfilesStackParams, 'Characters'>
+): ListRenderItem<Character> {
+  return ({item, index}) => (
+    <CharacterItem
+      key={index}
+      character={item}
+      onPress={() => navigation.navigate('Details', item)}
+    />
+  )
+}
