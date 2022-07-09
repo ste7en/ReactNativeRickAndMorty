@@ -8,8 +8,8 @@ export type Character = Identifiable & {
   species: string
   type: string
   gender: Gender
-  origin: Location
-  location: Location
+  origin: Pick<Location, 'name' | 'url'>
+  location: Pick<Location, 'name' | 'url'>
   image: string
   episode: string[]
   url: string
